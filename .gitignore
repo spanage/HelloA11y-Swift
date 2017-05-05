@@ -1,0 +1,35 @@
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+
+.idea
+
+Carthage/Checkouts/
+*.dSYM.zip
+*.generated.swift
+
+# Duped from global .gitignore for repo
+.DS_Store?
+.DS_Store
+
+# No playground
+*.playground
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output

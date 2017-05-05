@@ -68,9 +68,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let lessonItems = items[indexPath.row].lesson
-        let viewController = LessonViewController(lessonItems: lessonItems)
-        navigationController?.pushViewController(viewController, animated: true)
+        let item = items[indexPath.row]
     }
 }
 
@@ -110,14 +108,6 @@ enum MainItem {
         case .numbers: return .orange
         case .colors: return .cyan
         case .shapes: return .magenta
-        }
-    }
-    
-    var lesson: [LessonItem] {
-        switch self {
-        case .numbers: return NumbersLesson.lessonItems
-        case .colors: return ColorsLesson.lessonItems
-        case .shapes: return ShapesLesson.lessonItems
         }
     }
 }

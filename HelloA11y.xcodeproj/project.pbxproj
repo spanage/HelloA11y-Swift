@@ -15,6 +15,8 @@
 		7877D5EC1EBC3123003A0672 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7877D5EB1EBC3123003A0672 /* Cartography.framework */; };
 		7877D5EE1EBC3137003A0672 /* Cartography.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7877D5EB1EBC3123003A0672 /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7877D5F01EBC38D5003A0672 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */; };
+		7877D5F21EBC44AF003A0672 /* LessonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5F11EBC44AF003A0672 /* LessonItem.swift */; };
+		7877D5F41EBC48E9003A0672 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5F31EBC48E9003A0672 /* LessonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +42,8 @@
 		7877D5E81EBC0CDE003A0672 /* Artisan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Artisan.swift; path = submodules/Artisan/src/Artisan.swift; sourceTree = SOURCE_ROOT; };
 		7877D5EB1EBC3123003A0672 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
 		7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		7877D5F11EBC44AF003A0672 /* LessonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonItem.swift; sourceTree = "<group>"; };
+		7877D5F31EBC48E9003A0672 /* LessonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +80,13 @@
 			children = (
 				7877D5D51EBC09D5003A0672 /* AppDelegate.swift */,
 				7877D5D71EBC09D5003A0672 /* MainViewController.swift */,
+				7877D5F31EBC48E9003A0672 /* LessonViewController.swift */,
 				7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */,
 				7877D5DC1EBC09D5003A0672 /* Assets.xcassets */,
 				7877D5DE1EBC09D5003A0672 /* LaunchScreen.storyboard */,
 				7877D5E11EBC09D5003A0672 /* Info.plist */,
 				7877D5E71EBC0CA5003A0672 /* 3rd Party */,
+				7877D5F11EBC44AF003A0672 /* LessonItem.swift */,
 			);
 			path = HelloA11y;
 			sourceTree = "<group>";
@@ -174,9 +180,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7877D5F21EBC44AF003A0672 /* LessonItem.swift in Sources */,
 				7877D5E91EBC0CDE003A0672 /* Artisan.swift in Sources */,
 				7877D5D81EBC09D5003A0672 /* MainViewController.swift in Sources */,
 				7877D5F01EBC38D5003A0672 /* MainTableViewCell.swift in Sources */,
+				7877D5F41EBC48E9003A0672 /* LessonViewController.swift in Sources */,
 				7877D5D61EBC09D5003A0672 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

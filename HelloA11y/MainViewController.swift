@@ -24,6 +24,7 @@ final class MainViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.reuseID)
         
         view.addSubview(tableView)
         constrain(tableView, view) { table, parent in
@@ -55,7 +56,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = MainTableViewCell()
+        let cell: MainTableViewCell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reuseID, for: indexPath) as! MainTableViewCell
         cell.item = items[indexPath.row]
         return cell
     }
@@ -115,8 +116,8 @@ enum MainItem {
     var lesson: [LessonItem] {
         switch self {
         case .numbers: return NumbersLesson.lessonItems
-        case .colors: return NumbersLesson.lessonItems
-        case .shapes: return NumbersLesson.lessonItems
+        case .colors: return ColorsLesson.lessonItems
+        case .shapes: return ShapesLesson.lessonItems
         }
     }
 }

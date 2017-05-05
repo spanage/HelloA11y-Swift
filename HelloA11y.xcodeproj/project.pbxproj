@@ -17,6 +17,7 @@
 		7877D5F01EBC38D5003A0672 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */; };
 		7877D5F21EBC44AF003A0672 /* LessonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5F11EBC44AF003A0672 /* LessonItem.swift */; };
 		7877D5F41EBC48E9003A0672 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5F31EBC48E9003A0672 /* LessonViewController.swift */; };
+		7877D5F61EBC4EC3003A0672 /* LessonItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5F51EBC4EC3003A0672 /* LessonItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +45,7 @@
 		7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		7877D5F11EBC44AF003A0672 /* LessonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonItem.swift; sourceTree = "<group>"; };
 		7877D5F31EBC48E9003A0672 /* LessonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
+		7877D5F51EBC4EC3003A0672 /* LessonItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +82,9 @@
 			children = (
 				7877D5D51EBC09D5003A0672 /* AppDelegate.swift */,
 				7877D5D71EBC09D5003A0672 /* MainViewController.swift */,
-				7877D5F31EBC48E9003A0672 /* LessonViewController.swift */,
 				7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */,
+				7877D5F31EBC48E9003A0672 /* LessonViewController.swift */,
+				7877D5F51EBC4EC3003A0672 /* LessonItemTableViewCell.swift */,
 				7877D5DC1EBC09D5003A0672 /* Assets.xcassets */,
 				7877D5DE1EBC09D5003A0672 /* LaunchScreen.storyboard */,
 				7877D5E11EBC09D5003A0672 /* Info.plist */,
@@ -180,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7877D5F61EBC4EC3003A0672 /* LessonItemTableViewCell.swift in Sources */,
 				7877D5F21EBC44AF003A0672 /* LessonItem.swift in Sources */,
 				7877D5E91EBC0CDE003A0672 /* Artisan.swift in Sources */,
 				7877D5D81EBC09D5003A0672 /* MainViewController.swift in Sources */,

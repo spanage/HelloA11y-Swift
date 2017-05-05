@@ -12,7 +12,23 @@
 		7877D5DD1EBC09D5003A0672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7877D5DC1EBC09D5003A0672 /* Assets.xcassets */; };
 		7877D5E01EBC09D5003A0672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7877D5DE1EBC09D5003A0672 /* LaunchScreen.storyboard */; };
 		7877D5E91EBC0CDE003A0672 /* Artisan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5E81EBC0CDE003A0672 /* Artisan.swift */; };
+		7877D5EC1EBC3123003A0672 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7877D5EB1EBC3123003A0672 /* Cartography.framework */; };
+		7877D5EE1EBC3137003A0672 /* Cartography.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7877D5EB1EBC3123003A0672 /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7877D5F01EBC38D5003A0672 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7877D5ED1EBC312A003A0672 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7877D5EE1EBC3137003A0672 /* Cartography.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7877D5D21EBC09D5003A0672 /* HelloA11y.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloA11y.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +38,8 @@
 		7877D5DF1EBC09D5003A0672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7877D5E11EBC09D5003A0672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7877D5E81EBC0CDE003A0672 /* Artisan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Artisan.swift; path = submodules/Artisan/src/Artisan.swift; sourceTree = SOURCE_ROOT; };
+		7877D5EB1EBC3123003A0672 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
+		7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7877D5EC1EBC3123003A0672 /* Cartography.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +59,7 @@
 			children = (
 				7877D5D41EBC09D5003A0672 /* HelloA11y */,
 				7877D5D31EBC09D5003A0672 /* Products */,
+				7877D5EA1EBC3123003A0672 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +76,7 @@
 			children = (
 				7877D5D51EBC09D5003A0672 /* AppDelegate.swift */,
 				7877D5D71EBC09D5003A0672 /* MainViewController.swift */,
+				7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */,
 				7877D5DC1EBC09D5003A0672 /* Assets.xcassets */,
 				7877D5DE1EBC09D5003A0672 /* LaunchScreen.storyboard */,
 				7877D5E11EBC09D5003A0672 /* Info.plist */,
@@ -72,6 +93,14 @@
 			name = "3rd Party";
 			sourceTree = "<group>";
 		};
+		7877D5EA1EBC3123003A0672 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7877D5EB1EBC3123003A0672 /* Cartography.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,6 +111,7 @@
 				7877D5CE1EBC09D5003A0672 /* Sources */,
 				7877D5CF1EBC09D5003A0672 /* Frameworks */,
 				7877D5D01EBC09D5003A0672 /* Resources */,
+				7877D5ED1EBC312A003A0672 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -146,6 +176,7 @@
 			files = (
 				7877D5E91EBC0CDE003A0672 /* Artisan.swift in Sources */,
 				7877D5D81EBC09D5003A0672 /* MainViewController.swift in Sources */,
+				7877D5F01EBC38D5003A0672 /* MainTableViewCell.swift in Sources */,
 				7877D5D61EBC09D5003A0672 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +293,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 54RA6DC64E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HelloA11y/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sommerpanage.HelloA11y;
@@ -275,6 +310,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 54RA6DC64E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HelloA11y/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sommerpanage.HelloA11y;
@@ -302,6 +341,7 @@
 				7877D5E61EBC09D5003A0672 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

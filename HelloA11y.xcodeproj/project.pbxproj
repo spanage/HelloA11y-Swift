@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7877D5D61EBC09D5003A0672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5D51EBC09D5003A0672 /* AppDelegate.swift */; };
-		7877D5D81EBC09D5003A0672 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5D71EBC09D5003A0672 /* ViewController.swift */; };
-		7877D5DB1EBC09D5003A0672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7877D5D91EBC09D5003A0672 /* Main.storyboard */; };
+		7877D5D81EBC09D5003A0672 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5D71EBC09D5003A0672 /* MainViewController.swift */; };
 		7877D5DD1EBC09D5003A0672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7877D5DC1EBC09D5003A0672 /* Assets.xcassets */; };
 		7877D5E01EBC09D5003A0672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7877D5DE1EBC09D5003A0672 /* LaunchScreen.storyboard */; };
 		7877D5E91EBC0CDE003A0672 /* Artisan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5E81EBC0CDE003A0672 /* Artisan.swift */; };
@@ -18,8 +17,7 @@
 /* Begin PBXFileReference section */
 		7877D5D21EBC09D5003A0672 /* HelloA11y.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloA11y.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7877D5D51EBC09D5003A0672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7877D5D71EBC09D5003A0672 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7877D5DA1EBC09D5003A0672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7877D5D71EBC09D5003A0672 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7877D5DC1EBC09D5003A0672 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7877D5DF1EBC09D5003A0672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7877D5E11EBC09D5003A0672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,8 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				7877D5D51EBC09D5003A0672 /* AppDelegate.swift */,
-				7877D5D71EBC09D5003A0672 /* ViewController.swift */,
-				7877D5D91EBC09D5003A0672 /* Main.storyboard */,
+				7877D5D71EBC09D5003A0672 /* MainViewController.swift */,
 				7877D5DC1EBC09D5003A0672 /* Assets.xcassets */,
 				7877D5DE1EBC09D5003A0672 /* LaunchScreen.storyboard */,
 				7877D5E11EBC09D5003A0672 /* Info.plist */,
@@ -137,7 +134,6 @@
 			files = (
 				7877D5E01EBC09D5003A0672 /* LaunchScreen.storyboard in Resources */,
 				7877D5DD1EBC09D5003A0672 /* Assets.xcassets in Resources */,
-				7877D5DB1EBC09D5003A0672 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7877D5E91EBC0CDE003A0672 /* Artisan.swift in Sources */,
-				7877D5D81EBC09D5003A0672 /* ViewController.swift in Sources */,
+				7877D5D81EBC09D5003A0672 /* MainViewController.swift in Sources */,
 				7877D5D61EBC09D5003A0672 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,14 +153,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7877D5D91EBC09D5003A0672 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7877D5DA1EBC09D5003A0672 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7877D5DE1EBC09D5003A0672 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

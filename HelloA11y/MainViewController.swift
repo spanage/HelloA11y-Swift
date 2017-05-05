@@ -68,8 +68,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let lessonContent = items[indexPath.row].lessonContent
-        let vc = LessonViewController(question: "How many things are there?", lessonContent: lessonContent, drawForLesson: {_ in })
+        let item = items[indexPath.row]
+        let vc = LessonViewController(question: "How many things are there?", color: item.color, lessonContent: item.lessonContent) { lesson, rect in
+            lesson.draw(in: rect)
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -99,26 +101,18 @@ enum MainItem {
     
     var color: UIColor {
         switch self {
-        case .numbers: return .cyan
-        case .colors: return .magenta
-        case .shapes: return .orange
+        case .numbers: return AppColor.red.uiColor
+        case .colors: return AppColor.blue.uiColor
+        case .shapes: return AppColor.green.uiColor
         }
     }
     
-    var selectionColor: UIColor {
-        switch self {
-        case .numbers: return .orange
-        case .colors: return .cyan
-        case .shapes: return .magenta
-        }
-    }
-    
+    private typealias N = NumberLesson
     var lessonContent: [Lesson] {
         switch self {
-        case .numbers: return [NumberLesson.one, NumberLesson.two]
+        case .numbers: return [N.one, N.two, N.three, N.four, N.five, N.six, N.seven, N.eight, N.nine, N.ten]
         case .colors: return [NumberLesson.one, NumberLesson.two]
         case .shapes: return [NumberLesson.one, NumberLesson.two]
         }
     }
 }
-

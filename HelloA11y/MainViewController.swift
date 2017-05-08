@@ -69,9 +69,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let item = items[indexPath.row]
-        let vc = LessonViewController(question: "How many things are there?", color: item.color, lessonContent: item.lessonContent) { lesson, rect in
+        let vc = LessonViewController(question: item.question, color: item.color, lessonContent: item.lessonContent) { lesson, rect in
             lesson.draw(in: rect)
         }
+        vc.title = item.name
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -107,12 +108,22 @@ enum MainItem {
         }
     }
     
+    var question: String {
+        switch self {
+        case .numbers: return "How many things are there?"
+        case .colors: return "What color is the box?"
+        case .shapes: return "What shape is this?"
+        }
+    }
+    
     private typealias N = NumberLesson
+    private typealias C = ColorLesson
+    private typealias S = ShapeLesson
     var lessonContent: [Lesson] {
         switch self {
         case .numbers: return [N.one, N.two, N.three, N.four, N.five, N.six, N.seven, N.eight, N.nine, N.ten]
-        case .colors: return [NumberLesson.one, NumberLesson.two]
-        case .shapes: return [NumberLesson.one, NumberLesson.two]
+        case .colors: return [C.red, C.orange, C.yellow, C.green, C.blue, C.purple, C.black, C.white]
+        case .shapes: return [S.triangle]
         }
     }
 }

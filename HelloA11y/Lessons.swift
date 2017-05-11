@@ -28,11 +28,11 @@ enum ShapeLesson: String, Lesson {
     
     var chinese: String {
         switch self {
-        case .circle: return "一"
-        case .oval: return "二"
-        case .square: return "三"
-        case .rectangle: return "四"
-        case .triangle: return "五"
+        case .circle: return "圆形"
+        case .oval: return "橢圓形"
+        case .square: return "方形"
+        case .rectangle: return "長方形"
+        case .triangle: return "三角形"
         }
     }
     
@@ -90,14 +90,14 @@ enum ColorLesson: String, Lesson {
     
     var chinese: String {
         switch self {
-        case .red: return "一"
-        case .orange: return "二"
-        case .yellow: return "三"
-        case .green: return "四"
-        case .blue: return "五"
-        case .purple: return "六"
-        case .black: return "七"
-        case .white: return "八"
+        case .red: return "红色"
+        case .orange: return "橙色"
+        case .yellow: return "黄色"
+        case .green: return "绿色"
+        case .blue: return "蓝色"
+        case .purple: return "紫色"
+        case .black: return "黑色"
+        case .white: return "白色"
         }
     }
     

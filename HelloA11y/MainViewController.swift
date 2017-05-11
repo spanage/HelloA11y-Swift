@@ -123,7 +123,7 @@ enum MainItem {
         switch self {
         case .numbers: return [N.one, N.two, N.three, N.four, N.five, N.six, N.seven, N.eight, N.nine, N.ten]
         case .colors: return [C.red, C.orange, C.yellow, C.green, C.blue, C.purple, C.black, C.white]
-        case .shapes: return [S.triangle]
+        case .shapes: return [S.square, S.circle, S.oval, S.rectangle, S.triangle]
         }
     }
 }

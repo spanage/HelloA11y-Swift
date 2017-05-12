@@ -103,7 +103,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             }
             viewController.title = item.name
         case .review:
-            viewController = UIViewController()
+            let reviewItems = items.flatMap { item in
+                return item.lessonContent.map { ReviewItem(englishText: $0.english, chineseText: $0.chinese, color: item.color) }
+            }
+            viewController = ReviewViewController(items: reviewItems)
         }
         
         navigationController?.pushViewController(viewController, animated: true)

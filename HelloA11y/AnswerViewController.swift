@@ -59,4 +59,9 @@ final class AnswerViewController: UIViewController {
     @objc private func didSelectDone() {
         dismiss(animated: true, completion: nil)
     }
+    
+    override func accessibilityPerformEscape() -> Bool {
+        didSelectDone()
+        return true
+    }
 }

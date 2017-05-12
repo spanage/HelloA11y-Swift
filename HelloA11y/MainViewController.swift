@@ -27,6 +27,7 @@ final class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.reuseID)
+        tableView.register(ReviewTableViewCell.self, forCellReuseIdentifier: ReviewTableViewCell.reuseID)
         
         view.addSubview(tableView)
         constrain(tableView, view) { table, parent in
@@ -53,29 +54,59 @@ final class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    enum Section: Int {
+        case items = 0
+        case review = 1
+        
+        static let all: [Section] = [.items, .review]
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return Section.all.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        switch Section(rawValue: section)! {
+        case .items: return items.count
+        case .review: return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: MainTableViewCell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reuseID, for: indexPath) as! MainTableViewCell
-        cell.item = items[indexPath.row]
-        return cell
+        switch Section(rawValue: indexPath.section)! {
+        case .items:
+            let cell: MainTableViewCell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reuseID, for: indexPath) as! MainTableViewCell
+            cell.item = items[indexPath.row]
+            return cell
+        case .review:
+            let cell: ReviewTableViewCell = tableView.dequeueReusableCell(withIdentifier: ReviewTableViewCell.reuseID, for: indexPath) as! ReviewTableViewCell
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.bounds.width
+        switch Section(rawValue: indexPath.section)! {
+        case .items: return tableView.bounds.width
+        case .review: return tableView.bounds.width / 3.0
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let item = items[indexPath.row]
-        let vc = LessonViewController(question: item.question, color: item.color, lessonContent: item.lessonContent) { lesson, rect in
-            lesson.draw(in: rect)
+        let viewController: UIViewController
+        switch Section(rawValue: indexPath.section)! {
+        case .items:
+            let item = items[indexPath.row]
+            viewController = LessonViewController(question: item.question, color: item.color, lessonContent: item.lessonContent) { lesson, rect in
+                lesson.draw(in: rect)
+            }
+            viewController.title = item.name
+        case .review:
+            viewController = UIViewController()
         }
-        vc.title = item.name
-        navigationController?.pushViewController(vc, animated: true)
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

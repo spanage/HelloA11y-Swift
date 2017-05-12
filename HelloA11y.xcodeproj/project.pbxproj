@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		784FABCB1EC5EA7000397E66 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784FABCA1EC5EA7000397E66 /* ReviewTableViewCell.swift */; };
 		7877D5D61EBC09D5003A0672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5D51EBC09D5003A0672 /* AppDelegate.swift */; };
 		7877D5D81EBC09D5003A0672 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5D71EBC09D5003A0672 /* MainViewController.swift */; };
 		7877D5DD1EBC09D5003A0672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7877D5DC1EBC09D5003A0672 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		784FABCA1EC5EA7000397E66 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		7877D5D21EBC09D5003A0672 /* HelloA11y.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloA11y.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7877D5D51EBC09D5003A0672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7877D5D71EBC09D5003A0672 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				7877D5D71EBC09D5003A0672 /* MainViewController.swift */,
 				78F8233C1EBCF53900D5FE49 /* Color.swift */,
 				7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */,
+				784FABCA1EC5EA7000397E66 /* ReviewTableViewCell.swift */,
 				7877D5FF1EBCDB42003A0672 /* LessonViewController.swift */,
 				78F8233A1EBCEF6400D5FE49 /* AnswerViewController.swift */,
 				7877D5F71EBCAD8C003A0672 /* Lessons.swift */,
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78F8233B1EBCEF6400D5FE49 /* AnswerViewController.swift in Sources */,
+				784FABCB1EC5EA7000397E66 /* ReviewTableViewCell.swift in Sources */,
 				7877D5F81EBCAD8C003A0672 /* Lessons.swift in Sources */,
 				7877D5D81EBC09D5003A0672 /* MainViewController.swift in Sources */,
 				7877D5F01EBC38D5003A0672 /* MainTableViewCell.swift in Sources */,

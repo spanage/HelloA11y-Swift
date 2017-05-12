@@ -11,7 +11,6 @@
 		7877D5D81EBC09D5003A0672 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5D71EBC09D5003A0672 /* MainViewController.swift */; };
 		7877D5DD1EBC09D5003A0672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7877D5DC1EBC09D5003A0672 /* Assets.xcassets */; };
 		7877D5E01EBC09D5003A0672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7877D5DE1EBC09D5003A0672 /* LaunchScreen.storyboard */; };
-		7877D5E91EBC0CDE003A0672 /* Artisan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5E81EBC0CDE003A0672 /* Artisan.swift */; };
 		7877D5EC1EBC3123003A0672 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7877D5EB1EBC3123003A0672 /* Cartography.framework */; };
 		7877D5EE1EBC3137003A0672 /* Cartography.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7877D5EB1EBC3123003A0672 /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7877D5F01EBC38D5003A0672 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */; };
@@ -41,7 +40,6 @@
 		7877D5DC1EBC09D5003A0672 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7877D5DF1EBC09D5003A0672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7877D5E11EBC09D5003A0672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7877D5E81EBC0CDE003A0672 /* Artisan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Artisan.swift; path = submodules/Artisan/src/Artisan.swift; sourceTree = SOURCE_ROOT; };
 		7877D5EB1EBC3123003A0672 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
 		7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		7877D5F71EBCAD8C003A0672 /* Lessons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lessons.swift; sourceTree = "<group>"; };
@@ -92,17 +90,8 @@
 				7877D5DC1EBC09D5003A0672 /* Assets.xcassets */,
 				7877D5DE1EBC09D5003A0672 /* LaunchScreen.storyboard */,
 				7877D5E11EBC09D5003A0672 /* Info.plist */,
-				7877D5E71EBC0CA5003A0672 /* 3rd Party */,
 			);
 			path = HelloA11y;
-			sourceTree = "<group>";
-		};
-		7877D5E71EBC0CA5003A0672 /* 3rd Party */ = {
-			isa = PBXGroup;
-			children = (
-				7877D5E81EBC0CDE003A0672 /* Artisan.swift */,
-			);
-			name = "3rd Party";
 			sourceTree = "<group>";
 		};
 		7877D5EA1EBC3123003A0672 /* Frameworks */ = {
@@ -186,7 +175,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7877D5E91EBC0CDE003A0672 /* Artisan.swift in Sources */,
 				78F8233B1EBCEF6400D5FE49 /* AnswerViewController.swift in Sources */,
 				7877D5F81EBCAD8C003A0672 /* Lessons.swift in Sources */,
 				7877D5D81EBC09D5003A0672 /* MainViewController.swift in Sources */,

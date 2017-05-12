@@ -22,6 +22,8 @@ final class MainViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         
+        title = "Hello A11y!"
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.reuseID)

@@ -34,13 +34,13 @@ class LessonViewController: UIViewController {
     
     let englishButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setBackgroundImage(#imageLiteral(resourceName: "english").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setBackgroundImage(#imageLiteral(resourceName: "union_jack").withRenderingMode(.alwaysTemplate), for: .normal)
         return button
     }()
     
     let chineseButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setBackgroundImage(#imageLiteral(resourceName: "chinese").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setBackgroundImage(#imageLiteral(resourceName: "china_flag").withRenderingMode(.alwaysTemplate), for: .normal)
         return button
     }()
     

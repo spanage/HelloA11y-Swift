@@ -22,7 +22,7 @@ final class MainViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         
-        title = "Hello A11y!"
+        title = "Let‘s Learn!"
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -112,7 +112,7 @@ enum MainItem {
     
     var question: String {
         switch self {
-        case .numbers: return "How many things are there?"
+        case .numbers: return "How many circles are there?"
         case .colors: return "What color is the box?"
         case .shapes: return "What shape is this?"
         }

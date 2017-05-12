@@ -46,6 +46,8 @@ final class MainTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        accessibilityTraits |= UIAccessibilityTraitButton
                 
         [label, iconImage].forEach { containerView.addSubview($0) }
         contentView.addSubview(containerView)

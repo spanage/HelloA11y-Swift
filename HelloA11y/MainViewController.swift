@@ -98,8 +98,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         switch Section(rawValue: indexPath.section)! {
         case .items:
             let item = items[indexPath.row]
-            viewController = LessonViewController(question: item.question, color: item.color, lessonContent: item.lessonContent) { lesson, rect in
-                lesson.draw(in: rect)
+            viewController = LessonViewController(question: item.question, color: item.color, lessonContent: item.lessonContent) { lesson, view in
+                return lesson.drawAccessibly(in: view)
             }
             viewController.title = item.name
         case .review:

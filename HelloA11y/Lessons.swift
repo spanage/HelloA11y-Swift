@@ -12,7 +12,7 @@ import UIKit
 protocol Lesson {
     var english: String { get }
     var chinese: String { get }
-    func draw(in rect: CGRect)
+    func drawAccessibly(in view: UIView) -> [UIAccessibilityElement]
 }
 
 enum ShapeLesson: String, Lesson {
@@ -37,7 +37,8 @@ enum ShapeLesson: String, Lesson {
     }
     
     private static let drawingDimension: CGFloat = 100
-    func draw(in rect: CGRect) {
+    func drawAccessibly(in view: UIView) -> [UIAccessibilityElement] {
+        let rect = view.bounds
         let d = ShapeLesson.drawingDimension
         let context = UIGraphicsGetCurrentContext()
         let color = AppColor.orange.uiColor
@@ -71,6 +72,8 @@ enum ShapeLesson: String, Lesson {
             context?.closePath()
             context?.fillPath()
         }
+        
+        return []
     }
 }
 
@@ -116,7 +119,8 @@ enum ColorLesson: String, Lesson {
     
     
     private static let squareDimension: CGFloat = 100
-    func draw(in rect: CGRect) {
+    func drawAccessibly(in view: UIView) -> [UIAccessibilityElement] {
+        let rect = view.bounds
         let d = ColorLesson.squareDimension
         let context = UIGraphicsGetCurrentContext()
         let color = self.uiColor
@@ -128,6 +132,7 @@ enum ColorLesson: String, Lesson {
         let colorRect = CGRect(x: x, y: y, width: d, height: d)
         context?.fill(colorRect)
         context?.stroke(colorRect)
+        return []
     }
 }
 
@@ -175,7 +180,8 @@ enum NumberLesson: Int, Lesson {
     
     private static let radius: CGFloat = 20
     private static let colors: [UIColor] = [AppColor.red.uiColor, AppColor.green.uiColor, AppColor.blue.uiColor]
-    func draw(in rect: CGRect) {
+    func drawAccessibly(in view: UIView) -> [UIAccessibilityElement] {
+        let rect = view.bounds
         let r = NumberLesson.radius
         let colors = NumberLesson.colors
         let numberOfDots = self.rawValue
@@ -191,7 +197,10 @@ enum NumberLesson: Int, Lesson {
                                             y: CGFloat.random(within: minY...maxY),
                                             width: 2 * r,
                                             height: 2 * r))
+            
         }
+        
+        return []
     }
 }
 

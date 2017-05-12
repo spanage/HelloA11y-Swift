@@ -76,7 +76,7 @@ class LessonViewController: UIViewController {
     
     private let color: UIColor
 
-    init(question: String, color: UIColor, lessonContent: [Lesson], drawForLesson: @escaping (Lesson, CGRect) -> ()) {
+    init(question: String, color: UIColor, lessonContent: [Lesson], drawAccessiblyForLesson: @escaping (Lesson, UIView) -> [UIAccessibilityElement]) {
         self.lessonContent = lessonContent
         self.shuffleOrder = LessonViewController.shuffleOrder(for: lessonContent.count)
         self.color = color
@@ -85,7 +85,7 @@ class LessonViewController: UIViewController {
         questionLabel.text = question
         currentLessonShuffleIndex = 0
         let firstLesson = lessonContent[shuffleOrder[currentLessonShuffleIndex]]
-        lessonView = LessonView(lesson: firstLesson, drawForLesson: drawForLesson)
+        lessonView = LessonView(lesson: firstLesson, drawAccessiblyForLesson: drawAccessiblyForLesson)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -162,17 +162,19 @@ class LessonViewController: UIViewController {
 
 private class LessonView: UIView {
     
-    private let drawForLesson: (Lesson, CGRect) -> ()
+    private let drawAccessiblyForLesson: (Lesson, UIView) -> [UIAccessibilityElement]
     fileprivate var lesson: Lesson {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    init(lesson: Lesson, drawForLesson: @escaping (Lesson, CGRect) -> ()) {
+    init(lesson: Lesson, drawAccessiblyForLesson: @escaping (Lesson, UIView) -> [UIAccessibilityElement]) {
         self.lesson = lesson
-        self.drawForLesson = drawForLesson
+        self.drawAccessiblyForLesson = drawAccessiblyForLesson
         super.init(frame: .zero)
+        
+        isAccessibilityElement = false
         
         backgroundColor = .white
     }
@@ -182,6 +184,7 @@ private class LessonView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        drawForLesson(lesson, rect)
+        let a11yElements = drawAccessiblyForLesson(lesson, self)
+        accessibilityElements = a11yElements
     }
 }

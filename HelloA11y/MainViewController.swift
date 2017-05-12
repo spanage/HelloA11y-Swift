@@ -78,9 +78,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         case .items:
             let cell: MainTableViewCell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reuseID, for: indexPath) as! MainTableViewCell
             cell.item = items[indexPath.row]
+            cell.accessibilityTraits |= UIAccessibilityTraitButton
             return cell
         case .review:
             let cell: ReviewTableViewCell = tableView.dequeueReusableCell(withIdentifier: ReviewTableViewCell.reuseID, for: indexPath) as! ReviewTableViewCell
+            cell.accessibilityTraits |= UIAccessibilityTraitButton
             return cell
         }
     }

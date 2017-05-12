@@ -157,6 +157,7 @@ class LessonViewController: UIViewController {
         } else {
             nextButton.setTitle("Next", for: .normal)
         }
+        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, questionLabel)
     }
 }
 

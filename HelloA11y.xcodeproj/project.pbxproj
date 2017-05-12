@@ -88,9 +88,9 @@
 			children = (
 				7877D5D51EBC09D5003A0672 /* AppDelegate.swift */,
 				7877D5D71EBC09D5003A0672 /* MainViewController.swift */,
-				784FABCC1EC5EED600397E66 /* ReviewViewController.swift */,
-				78F8233C1EBCF53900D5FE49 /* Color.swift */,
 				7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */,
+				78F8233C1EBCF53900D5FE49 /* Color.swift */,
+				784FABCC1EC5EED600397E66 /* ReviewViewController.swift */,
 				784FABCA1EC5EA7000397E66 /* ReviewTableViewCell.swift */,
 				784FABCE1EC5F00C00397E66 /* ReviewItemTableViewCell.swift */,
 				7877D5FF1EBCDB42003A0672 /* LessonViewController.swift */,

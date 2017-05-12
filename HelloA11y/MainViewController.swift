@@ -106,7 +106,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             viewController.title = item.name
         case .review:
             let reviewItems = items.flatMap { item in
-                return item.lessonContent.map { ReviewItem(englishText: $0.english, chineseText: $0.chinese, color: item.color) }
+                return item.lessonContent.map { ReviewItem(englishText: $0.english, chineseText: $0.chinese, color: item.color, rotorCategory: item.rotorCategory) }
             }
             viewController = ReviewViewController(items: reviewItems)
         }
@@ -151,6 +151,14 @@ enum MainItem {
         case .numbers: return "How many circles are there?"
         case .colors: return "What color is the box?"
         case .shapes: return "What shape is this?"
+        }
+    }
+    
+    var rotorCategory: String {
+        switch self {
+        case .numbers: return "Numbers"
+        case .colors: return "Colors"
+        case .shapes: return "Shapes"
         }
     }
     

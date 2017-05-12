@@ -12,6 +12,7 @@ struct ReviewItem {
     let englishText: String
     let chineseText: String
     let color: UIColor
+    let rotorCategory: String
 }
 
 final class ReviewViewController: UIViewController {
@@ -42,10 +43,46 @@ final class ReviewViewController: UIViewController {
         constrain(tableView, view) { table, parent in
             table.edges == parent.edges
         }
+        
+        setupRotors()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupRotors() {
+        let categories = Set(items.map { $0.rotorCategory })
+        let rotors = categories.map { category in
+            UIAccessibilityCustomRotor(name: category, itemSearch: { (predicate) -> UIAccessibilityCustomRotorItemResult? in
+                guard !self.items.isEmpty else { return nil }
+                
+                let forward = predicate.searchDirection == .next
+                
+                // figure out starting point
+                var currentIndex = forward ? -1 : self.items.count
+                if let cell = predicate.currentItem.targetElement as? UITableViewCell {
+                    currentIndex = self.tableView.indexPath(for: cell)?.row ?? currentIndex
+                }
+                
+                // helper for search
+                func next(index: Int) -> Int { return forward ? index + 1 : index - 1 }
+                
+                var index = next(index: currentIndex)
+                while index >= 0 && index < self.items.count {
+                    if self.items[index].rotorCategory == category {
+                        let indexPath = IndexPath(row: index, section: 0)
+                        self.tableView.scrollToRow(at: indexPath, at: .none, animated: false)
+                        let cell = self.tableView.cellForRow(at: indexPath)!
+                        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, nil)
+                        return UIAccessibilityCustomRotorItemResult(targetElement: cell, targetRange: nil)
+                    }
+                    index = next(index: index)
+                }
+                return nil
+            })
+        }
+        accessibilityCustomRotors = rotors
     }
 }
 

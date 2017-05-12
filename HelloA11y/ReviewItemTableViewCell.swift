@@ -16,6 +16,7 @@ final class ReviewItemTableViewCell: UITableViewCell {
             englishLabel.text = item.englishText
             chineseLabel.text = item.chineseText
             contentView.backgroundColor = item.color
+            accessibilityLabel = "\(item.englishText), \(item.chineseText)"
         }
     }
     
@@ -33,6 +34,9 @@ final class ReviewItemTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        selectionStyle = .none
+        isAccessibilityElement = true // we need to do this to get custom rotors to behave nicely
         
         contentView.addSubview(englishLabel)
         contentView.addSubview(chineseLabel)

@@ -55,15 +55,25 @@ enum ShapeLesson: String, Lesson {
                                width: shapeRect.width,
                                height: rectHeight)
         
+        let accessibilityElement = UIAccessibilityElement(accessibilityContainer: view)
+        
         switch self {
         case .square:
             context?.fill(shapeRect)
+            accessibilityElement.accessibilityFrameInContainerSpace = shapeRect
+            accessibilityElement.accessibilityLabel = "Shape of one side of a die, four sides"
         case .rectangle:
             context?.fill(rectangle)
+            accessibilityElement.accessibilityFrameInContainerSpace = rectangle
+            accessibilityElement.accessibilityLabel = "Shape of a sheet of standard printer paper, four sides"
         case .circle:
             context?.fillEllipse(in: shapeRect)
+            accessibilityElement.accessibilityFrameInContainerSpace = shapeRect
+            accessibilityElement.accessibilityLabel = "Shape of a CD or a quarter, round"
         case .oval:
             context?.fillEllipse(in: rectangle)
+            accessibilityElement.accessibilityFrameInContainerSpace = rectangle
+            accessibilityElement.accessibilityLabel = "Shape of an egg, round and elongated"
         case .triangle:
             context?.beginPath()
             context?.move(to: CGPoint(x: shapeRect.minX, y: shapeRect.maxY))
@@ -71,9 +81,11 @@ enum ShapeLesson: String, Lesson {
             context?.addLine(to: CGPoint(x: shapeRect.minX + (shapeRect.maxX - shapeRect.minX) / 2.0, y: shapeRect.minY))
             context?.closePath()
             context?.fillPath()
+            accessibilityElement.accessibilityFrameInContainerSpace = shapeRect
+            accessibilityElement.accessibilityLabel = "Shape of a yield sign, three sides"
         }
         
-        return []
+        return [accessibilityElement]
     }
 }
 
@@ -117,6 +129,18 @@ enum ColorLesson: String, Lesson {
         }
     }
     
+    private var accessibilityDescription: String {
+        switch self {
+        case .red: return "Square, the color of a stop sign"
+        case .orange: return "Square, the color of a tangerine"
+        case .yellow: return "Square, the color of a banana"
+        case .green: return "Square, the color of grass"
+        case .blue: return "Square, the color of the sky and ocean"
+        case .purple: return "Square, the color of eggplant"
+        case .black: return "Square, the color of night"
+        case .white: return "Square, the color of snow"
+        }
+    }
     
     private static let squareDimension: CGFloat = 100
     func drawAccessibly(in view: UIView) -> [UIAccessibilityElement] {
@@ -132,7 +156,11 @@ enum ColorLesson: String, Lesson {
         let colorRect = CGRect(x: x, y: y, width: d, height: d)
         context?.fill(colorRect)
         context?.stroke(colorRect)
-        return []
+        
+        let element = UIAccessibilityElement(accessibilityContainer: view)
+        element.accessibilityFrameInContainerSpace = colorRect
+        element.accessibilityLabel = accessibilityDescription
+        return [element]
     }
 }
 
@@ -179,28 +207,65 @@ enum NumberLesson: Int, Lesson {
     }
     
     private static let radius: CGFloat = 20
-    private static let colors: [UIColor] = [AppColor.red.uiColor, AppColor.green.uiColor, AppColor.blue.uiColor]
+    
+    private enum CircleColor: String {
+        case red = "red"
+        case green = "green"
+        case blue = "blue"
+        
+        var accessibilityLabel: String {
+            return rawValue + " circle"
+        }
+        
+        var uiColor: UIColor {
+            switch self {
+            case .red: return AppColor.red.uiColor
+            case .green: return AppColor.green.uiColor
+            case .blue: return AppColor.blue.uiColor
+            }
+        }
+        
+        static let all: [CircleColor] = [.red, .green, .blue]
+    }
+    
     func drawAccessibly(in view: UIView) -> [UIAccessibilityElement] {
         let rect = view.bounds
         let r = NumberLesson.radius
-        let colors = NumberLesson.colors
+        let colors = CircleColor.all
         let numberOfDots = self.rawValue
         let minX = rect.origin.x
         let maxX = rect.maxX - 2 * r
         let minY = rect.origin.y
         let maxY = rect.maxY - 2 * r
+        
+        var accessibilityElements: [UIAccessibilityElement] = []
+        
         for i in 1...numberOfDots {
             let context = UIGraphicsGetCurrentContext()
-            let color = colors[i % colors.count].withAlphaComponent(0.6)
-            context?.setFillColor(color.cgColor)
-            context?.fillEllipse(in: CGRect(x: CGFloat.random(within: minX...maxX),
-                                            y: CGFloat.random(within: minY...maxY),
-                                            width: 2 * r,
-                                            height: 2 * r))
+            let color = colors[i % colors.count]
+            let cgColor = color.uiColor.withAlphaComponent(0.6).cgColor
+            context?.setFillColor(cgColor)
+            let frame = CGRect(x: CGFloat.random(within: minX...maxX),
+                               y: CGFloat.random(within: minY...maxY),
+                               width: 2 * r,
+                               height: 2 * r)
+            context?.fillEllipse(in: frame)
             
+            let element = UIAccessibilityElement(accessibilityContainer: view)
+            element.accessibilityLabel = color.accessibilityLabel
+            element.accessibilityFrameInContainerSpace = frame
+            accessibilityElements.append(element)
         }
         
-        return []
+        return accessibilityElements.sorted { elemA, elemB in
+            let originA = elemA.accessibilityFrameInContainerSpace.origin
+            let originB = elemB.accessibilityFrameInContainerSpace.origin
+            if originA.y == originB.y {
+                return originA.x < originB.x
+            } else {
+                return originA.y < originB.y
+            }
+        }
     }
 }
 

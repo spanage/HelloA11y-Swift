@@ -74,17 +74,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell
         switch Section(rawValue: indexPath.section)! {
         case .items:
-            let cell: MainTableViewCell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reuseID, for: indexPath) as! MainTableViewCell
-            cell.item = items[indexPath.row]
-            cell.accessibilityTraits |= UIAccessibilityTraitButton
-            return cell
+            let mainCell: MainTableViewCell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reuseID, for: indexPath) as! MainTableViewCell
+            mainCell.item = items[indexPath.row]
+            cell = mainCell
         case .review:
-            let cell: ReviewTableViewCell = tableView.dequeueReusableCell(withIdentifier: ReviewTableViewCell.reuseID, for: indexPath) as! ReviewTableViewCell
-            cell.accessibilityTraits |= UIAccessibilityTraitButton
-            return cell
+            let reviewCell: ReviewTableViewCell = tableView.dequeueReusableCell(withIdentifier: ReviewTableViewCell.reuseID, for: indexPath) as! ReviewTableViewCell
+            cell = reviewCell
         }
+        cell.accessibilityTraits |= UIAccessibilityTraitButton
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -131,14 +131,14 @@ enum ColorLesson: String, Lesson {
     
     private var accessibilityDescription: String {
         switch self {
-        case .red: return "Square, the color of a stop sign"
-        case .orange: return "Square, the color of a tangerine"
-        case .yellow: return "Square, the color of a banana"
-        case .green: return "Square, the color of grass"
-        case .blue: return "Square, the color of the sky and ocean"
-        case .purple: return "Square, the color of eggplant"
-        case .black: return "Square, the color of night"
-        case .white: return "Square, the color of snow"
+        case .red: return "Box, the color of a stop sign"
+        case .orange: return "Box, the color of a tangerine"
+        case .yellow: return "Box, the color of a banana"
+        case .green: return "Box, the color of grass"
+        case .blue: return "Box, the color of the sky and ocean"
+        case .purple: return "Box, the color of eggplant"
+        case .black: return "Box, the color of night"
+        case .white: return "Box, the color of snow"
         }
     }
     

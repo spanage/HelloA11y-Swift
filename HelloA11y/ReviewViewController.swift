@@ -74,7 +74,6 @@ final class ReviewViewController: UIViewController {
                         let indexPath = IndexPath(row: index, section: 0)
                         self.tableView.scrollToRow(at: indexPath, at: .none, animated: false)
                         let cell = self.tableView.cellForRow(at: indexPath)!
-                        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, nil)
                         return UIAccessibilityCustomRotorItemResult(targetElement: cell, targetRange: nil)
                     }
                     index = next(index: index)

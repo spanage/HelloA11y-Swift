@@ -29,19 +29,22 @@ final class ReviewTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let insetContainer = UIView()
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         contentView.backgroundColor = AppColor.orange.uiColor
         
-        contentView.addSubview(label)
+        insetContainer.addSubview(label)
+        contentView.addSubview(insetContainer)
         
-        constrain(label, contentView) { label, parent in
+        constrain(label, insetContainer) { label, parent in
             label.center == parent.center
         }
         
-        constrain(contentView, self) { content, parent in
-            content.edges == inset(parent.edges, 20, 0, 0, 0)
+        constrain(insetContainer, contentView) { container, parent in
+            container.edges == inset(parent.edges, 20, 0, 0, 0)
         }
     }
     

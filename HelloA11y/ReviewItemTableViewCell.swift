@@ -15,14 +15,15 @@ final class ReviewItemTableViewCell: UITableViewCell {
         didSet {
             englishLabel.text = item.englishText
             chineseLabel.text = item.chineseText
-            contentView.backgroundColor = item.color
+            insetContainerView.backgroundColor = item.color
             accessibilityLabel = "\(item.englishText), \(item.chineseText)"
         }
     }
     
     private let englishLabel = ReviewItemTableViewCell.label(with: .left)
     private let chineseLabel = ReviewItemTableViewCell.label(with: .right)
-    
+    private let insetContainerView = UIView()
+
     private static func label(with alignment: NSTextAlignment) -> UILabel {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -32,16 +33,18 @@ final class ReviewItemTableViewCell: UITableViewCell {
         return label
     }
     
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
         isAccessibilityElement = true // we need to do this to get custom rotors to behave nicely
         
-        contentView.addSubview(englishLabel)
-        contentView.addSubview(chineseLabel)
+        insetContainerView.addSubview(englishLabel)
+        insetContainerView.addSubview(chineseLabel)
+        contentView.addSubview(insetContainerView)
         
-        constrain(englishLabel, chineseLabel, contentView) { english, chinese, parent in
+        constrain(englishLabel, chineseLabel, insetContainerView) { english, chinese, parent in
             english.leading == parent.leading + 20
             chinese.trailing == parent.trailing - 20
             
@@ -49,8 +52,8 @@ final class ReviewItemTableViewCell: UITableViewCell {
             chinese.centerY == parent.centerY
         }
         
-        constrain(contentView, self) { content, parent in
-            content.edges == inset(parent.edges, 10, 20, 10, 20)
+        constrain(insetContainerView, contentView) { container, parent in
+            container.edges == inset(parent.edges, 20, 10)
         }
     }
     

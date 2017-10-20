@@ -6,14 +6,6 @@
 //  Copyright © 2017 Sommer Panage. All rights reserved.
 //
 
-//
-//  MainTableViewCell.swift
-//  HelloA11y
-//
-//  Created by Sommer Panage on 5/4/17.
-//  Copyright © 2017 Sommer Panage. All rights reserved.
-//
-
 import Cartography
 
 final class ReviewTableViewCell: UITableViewCell {

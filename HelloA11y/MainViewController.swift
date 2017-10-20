@@ -101,9 +101,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         switch Section(rawValue: indexPath.section)! {
         case .items:
             let item = items[indexPath.row]
-            viewController = LessonViewController(question: item.question, color: item.color, lessonContent: item.lessonContent) { lesson, view in
-                return lesson.drawAccessibly(in: view)
-            }
+            let content = LessonViewController.Content(lessons: item.lessonContent,
+                                                       drawLessonInView: { (lesson, view) in
+                                                            lesson.draw(in: view)
+                                                        })
+            viewController = LessonViewController(question: item.question, color: item.color, content: content)
             viewController.title = item.name
         case .review:
             let reviewItems = items.flatMap { item in
@@ -166,7 +168,7 @@ enum MainItem {
     private typealias N = NumberLesson
     private typealias C = ColorLesson
     private typealias S = ShapeLesson
-    var lessonContent: [Lesson] {
+    var lessonContent: [DrawableLesson] {
         switch self {
         case .numbers: return [N.one, N.two, N.three, N.four, N.five, N.six, N.seven, N.eight, N.nine, N.ten]
         case .colors: return [C.red, C.orange, C.yellow, C.green, C.blue, C.purple, C.black, C.white]

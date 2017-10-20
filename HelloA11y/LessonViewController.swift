@@ -8,9 +8,15 @@
 
 import Cartography
 
+typealias DrawableLesson = Lesson & Drawable
+
 class LessonViewController: UIViewController {
+    struct Content {
+        let lessons: [DrawableLesson]
+        let drawLessonInView: (DrawableLesson, UIView) -> [UIAccessibilityElement]
+    }
     
-    let lessonContent: [Lesson]
+    private let content: Content
     private let shuffleOrder: [Int]
     
     private var currentLessonShuffleIndex: Int! {
@@ -19,8 +25,8 @@ class LessonViewController: UIViewController {
         }
     }
     
-    private var currentLesson: Lesson {
-        return lessonContent[shuffleOrder[currentLessonShuffleIndex]]
+    private var currentLesson: DrawableLesson {
+        return content.lessons[shuffleOrder[currentLessonShuffleIndex]]
     }
     
     private let questionLabel: UILabel = {
@@ -76,16 +82,16 @@ class LessonViewController: UIViewController {
     
     private let color: UIColor
 
-    init(question: String, color: UIColor, lessonContent: [Lesson], drawAccessiblyForLesson: @escaping (Lesson, UIView) -> [UIAccessibilityElement]) {
-        self.lessonContent = lessonContent
-        self.shuffleOrder = LessonViewController.shuffleOrder(for: lessonContent.count)
+    init(question: String, color: UIColor, content: Content) {
+        self.content = content
+        self.shuffleOrder = LessonViewController.shuffleOrder(for: content.lessons.count)
         self.color = color
         super.init(nibName: nil, bundle: nil)
         
         questionLabel.text = question
         currentLessonShuffleIndex = 0
-        let firstLesson = lessonContent[shuffleOrder[currentLessonShuffleIndex]]
-        lessonView = LessonView(lesson: firstLesson, drawAccessiblyForLesson: drawAccessiblyForLesson)
+        let firstLesson = content.lessons[shuffleOrder[currentLessonShuffleIndex]]
+        lessonView = LessonView(lesson: firstLesson, draw: content.drawLessonInView)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -150,9 +156,10 @@ class LessonViewController: UIViewController {
     }
     
     @objc private func didSelectNextButton() {
-        let nextIndex = (currentLessonShuffleIndex + 1) % lessonContent.count
+        let lessonCount = content.lessons.count
+        let nextIndex = (currentLessonShuffleIndex + 1) % lessonCount
         currentLessonShuffleIndex = nextIndex
-        if nextIndex == lessonContent.count - 1 {
+        if nextIndex == lessonCount - 1 {
             nextButton.setTitle("Start over!", for: .normal)
         } else {
             nextButton.setTitle("Next", for: .normal)
@@ -163,20 +170,19 @@ class LessonViewController: UIViewController {
 
 private class LessonView: UIView {
     
-    private let drawAccessiblyForLesson: (Lesson, UIView) -> [UIAccessibilityElement]
-    fileprivate var lesson: Lesson {
+    private let draw: (DrawableLesson, UIView) -> [UIAccessibilityElement]
+    fileprivate var lesson: DrawableLesson {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    init(lesson: Lesson, drawAccessiblyForLesson: @escaping (Lesson, UIView) -> [UIAccessibilityElement]) {
+    init(lesson: DrawableLesson, draw: @escaping (DrawableLesson, UIView) -> [UIAccessibilityElement]) {
         self.lesson = lesson
-        self.drawAccessiblyForLesson = drawAccessiblyForLesson
+        self.draw = draw
         super.init(frame: .zero)
         
         isAccessibilityElement = false
-        
         backgroundColor = .white
     }
     
@@ -185,7 +191,6 @@ private class LessonView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        let a11yElements = drawAccessiblyForLesson(lesson, self)
-        accessibilityElements = a11yElements
+        accessibilityElements = draw(lesson, self)
     }
 }

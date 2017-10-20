@@ -13,7 +13,7 @@ final class ReviewTableViewCell: UITableViewCell {
     
     private let label: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.font = UIFont.preferredFont(forTextStyle: .title1).heavy
         label.numberOfLines = 1
         label.textAlignment = .center
         label.textColor = .white

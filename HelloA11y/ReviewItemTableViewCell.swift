@@ -26,7 +26,7 @@ final class ReviewItemTableViewCell: UITableViewCell {
 
     private static func label(with alignment: NSTextAlignment) -> UILabel {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = .preferredFont(forTextStyle: .title3)
         label.numberOfLines = 1
         label.textColor = .white
         label.textAlignment = alignment

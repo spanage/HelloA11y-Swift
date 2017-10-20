@@ -19,6 +19,7 @@
 		7877D5F01EBC38D5003A0672 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */; };
 		7877D5F81EBCAD8C003A0672 /* Lessons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5F71EBCAD8C003A0672 /* Lessons.swift */; };
 		7877D6001EBCDB42003A0672 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5FF1EBCDB42003A0672 /* LessonViewController.swift */; };
+		789798F11F99AC7E00B93A41 /* UIFont+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789798F01F99AC7E00B93A41 /* UIFont+Util.swift */; };
 		78F8233B1EBCEF6400D5FE49 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F8233A1EBCEF6400D5FE49 /* AnswerViewController.swift */; };
 		78F8233D1EBCF53900D5FE49 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F8233C1EBCF53900D5FE49 /* Color.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		7877D5EF1EBC38D5003A0672 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		7877D5F71EBCAD8C003A0672 /* Lessons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lessons.swift; sourceTree = "<group>"; };
 		7877D5FF1EBCDB42003A0672 /* LessonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
+		789798F01F99AC7E00B93A41 /* UIFont+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Util.swift"; sourceTree = "<group>"; };
 		78F8233A1EBCEF6400D5FE49 /* AnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		78F8233C1EBCF53900D5FE49 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 				7877D5FF1EBCDB42003A0672 /* LessonViewController.swift */,
 				78F8233A1EBCEF6400D5FE49 /* AnswerViewController.swift */,
 				7877D5F71EBCAD8C003A0672 /* Lessons.swift */,
+				789798F01F99AC7E00B93A41 /* UIFont+Util.swift */,
 				7877D5DC1EBC09D5003A0672 /* Assets.xcassets */,
 				7877D5DE1EBC09D5003A0672 /* LaunchScreen.storyboard */,
 				7877D5E11EBC09D5003A0672 /* Info.plist */,
@@ -187,6 +190,7 @@
 			files = (
 				784FABCF1EC5F00C00397E66 /* ReviewItemTableViewCell.swift in Sources */,
 				78F8233B1EBCEF6400D5FE49 /* AnswerViewController.swift in Sources */,
+				789798F11F99AC7E00B93A41 /* UIFont+Util.swift in Sources */,
 				784FABCB1EC5EA7000397E66 /* ReviewTableViewCell.swift in Sources */,
 				7877D5F81EBCAD8C003A0672 /* Lessons.swift in Sources */,
 				7877D5D81EBC09D5003A0672 /* MainViewController.swift in Sources */,

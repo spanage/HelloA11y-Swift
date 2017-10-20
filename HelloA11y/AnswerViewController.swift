@@ -13,7 +13,7 @@ final class AnswerViewController: UIViewController {
     let answerLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = .boldSystemFont(ofSize: 50)
+        label.font = .boldSystemFont(ofSize: 50) // this font is very large, so we keep it
         label.textAlignment = .center
         label.numberOfLines = 1
         return label
@@ -23,7 +23,7 @@ final class AnswerViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Got it!", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .title3)
         return button
     }()
     

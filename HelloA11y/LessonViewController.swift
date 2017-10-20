@@ -26,7 +26,7 @@ class LessonViewController: UIViewController {
     private let questionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 30, weight: .semibold)
+        label.font = .preferredFont(forTextStyle: .title1)
         label.textColor = .white
         label.textAlignment = .center
         return label
@@ -52,7 +52,7 @@ class LessonViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Next", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .title3)
         return button
     }()
     

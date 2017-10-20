@@ -61,19 +61,19 @@ enum ShapeLesson: String, Lesson {
         case .square:
             context?.fill(shapeRect)
             accessibilityElement.accessibilityFrameInContainerSpace = shapeRect
-            accessibilityElement.accessibilityLabel = "Shape of one side of a die, four sides"
+            accessibilityElement.accessibilityLabel = "Shape of one side of a die; four straight sides"
         case .rectangle:
             context?.fill(rectangle)
             accessibilityElement.accessibilityFrameInContainerSpace = rectangle
-            accessibilityElement.accessibilityLabel = "Shape of a sheet of standard printer paper, four sides"
+            accessibilityElement.accessibilityLabel = "Shape of an envelope; four straight sides and long"
         case .circle:
             context?.fillEllipse(in: shapeRect)
             accessibilityElement.accessibilityFrameInContainerSpace = shapeRect
-            accessibilityElement.accessibilityLabel = "Shape of a CD or a quarter, round"
+            accessibilityElement.accessibilityLabel = "Shape of CD or a quarter; round"
         case .oval:
             context?.fillEllipse(in: rectangle)
             accessibilityElement.accessibilityFrameInContainerSpace = rectangle
-            accessibilityElement.accessibilityLabel = "Shape of an egg, round and elongated"
+            accessibilityElement.accessibilityLabel = "Shape of a drawing of a football or an egg; round and long"
         case .triangle:
             context?.beginPath()
             context?.move(to: CGPoint(x: shapeRect.minX, y: shapeRect.maxY))
@@ -82,7 +82,7 @@ enum ShapeLesson: String, Lesson {
             context?.closePath()
             context?.fillPath()
             accessibilityElement.accessibilityFrameInContainerSpace = shapeRect
-            accessibilityElement.accessibilityLabel = "Shape of a yield sign, three sides"
+            accessibilityElement.accessibilityLabel = "Shape of a tortilla chip or a yield sign; three straight sides"
         }
         
         return [accessibilityElement]

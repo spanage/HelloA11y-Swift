@@ -7,4 +7,5 @@ framework module Cartography {
 
 module Cartography.Swift {
     header "Cartography-Swift.h"
+    requires objc
 }

@@ -34,7 +34,7 @@ final class ReviewTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = AppColor.orange.uiColor
+        insetContainer.backgroundColor = AppColor.orange.uiColor
         
         insetContainer.addSubview(label)
         contentView.addSubview(insetContainer)

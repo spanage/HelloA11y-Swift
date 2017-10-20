@@ -26,7 +26,7 @@ class LessonViewController: UIViewController {
     private let questionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 30, weight: UIFontWeightSemibold)
+        label.font = .systemFont(ofSize: 30, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
         return label

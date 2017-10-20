@@ -14,14 +14,14 @@ final class ReviewItemTableViewCell: UITableViewCell {
     var item: ReviewItem! {
         didSet {
             englishLabel.text = item.englishText
-            chineseLabel.text = item.chineseText
+            spanishLabel.text = item.spanishText
             insetContainerView.backgroundColor = item.color
-            accessibilityLabel = "\(item.englishText), \(item.chineseText)"
+            accessibilityLabel = "\(item.englishText), \(item.spanishText)"
         }
     }
     
     private let englishLabel = ReviewItemTableViewCell.label(with: .left)
-    private let chineseLabel = ReviewItemTableViewCell.label(with: .right)
+    private let spanishLabel = ReviewItemTableViewCell.label(with: .right)
     private let insetContainerView = UIView()
 
     private static func label(with alignment: NSTextAlignment) -> UILabel {
@@ -41,15 +41,15 @@ final class ReviewItemTableViewCell: UITableViewCell {
         isAccessibilityElement = true // we need to do this to get custom rotors to behave nicely
         
         insetContainerView.addSubview(englishLabel)
-        insetContainerView.addSubview(chineseLabel)
+        insetContainerView.addSubview(spanishLabel)
         contentView.addSubview(insetContainerView)
         
-        constrain(englishLabel, chineseLabel, insetContainerView) { english, chinese, parent in
+        constrain(englishLabel, spanishLabel, insetContainerView) { english, spanish, parent in
             english.leading == parent.leading + 20
-            chinese.trailing == parent.trailing - 20
+            spanish.trailing == parent.trailing - 20
             
             english.centerY == parent.centerY
-            chinese.centerY == parent.centerY
+            spanish.centerY == parent.centerY
         }
         
         constrain(insetContainerView, contentView) { container, parent in

@@ -11,7 +11,7 @@ import UIKit
 
 protocol Lesson {
     var english: String { get }
-    var chinese: String { get }
+    var spanish: String { get }
     func drawAccessibly(in view: UIView) -> [UIAccessibilityElement]
 }
 
@@ -26,13 +26,13 @@ enum ShapeLesson: String, Lesson {
         return self.rawValue
     }
     
-    var chinese: String {
+    var spanish: String {
         switch self {
-        case .circle: return "圆形"
-        case .oval: return "橢圓形"
-        case .square: return "方形"
-        case .rectangle: return "長方形"
-        case .triangle: return "三角形"
+        case .circle: return "el círculo"
+        case .oval: return "el óvalo"
+        case .square: return "el cuadrado"
+        case .rectangle: return "el rectángulo"
+        case .triangle: return "el triángulo"
         }
     }
     
@@ -103,16 +103,16 @@ enum ColorLesson: String, Lesson {
         return self.rawValue
     }
     
-    var chinese: String {
+    var spanish: String {
         switch self {
-        case .red: return "红色"
-        case .orange: return "橙色"
-        case .yellow: return "黄色"
-        case .green: return "绿色"
-        case .blue: return "蓝色"
-        case .purple: return "紫色"
-        case .black: return "黑色"
-        case .white: return "白色"
+        case .red: return "rojo"
+        case .orange: return "anaranjado"
+        case .yellow: return "amarillo"
+        case .green: return "verde"
+        case .blue: return "azul"
+        case .purple: return "morado"
+        case .black: return "negro"
+        case .white: return "blanco"
         }
     }
     
@@ -191,18 +191,18 @@ enum NumberLesson: Int, Lesson {
         }
     }
     
-    var chinese: String {
+    var spanish: String {
         switch self {
-        case .one: return "一"
-        case .two: return "二"
-        case .three: return "三"
-        case .four: return "四"
-        case .five: return "五"
-        case .six: return "六"
-        case .seven: return "七"
-        case .eight: return "八"
-        case .nine: return "九"
-        case .ten: return "十"
+        case .one: return "uno"
+        case .two: return "dos"
+        case .three: return "tres"
+        case .four: return "cuatro"
+        case .five: return "cinco"
+        case .six: return "seis"
+        case .seven: return "siete"
+        case .eight: return "ocho"
+        case .nine: return "nueve"
+        case .ten: return "diez"
         }
     }
     

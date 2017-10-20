@@ -107,7 +107,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             viewController.title = item.name
         case .review:
             let reviewItems = items.flatMap { item in
-                return item.lessonContent.map { ReviewItem(englishText: $0.english, chineseText: $0.chinese, color: item.color, rotorCategory: item.rotorCategory) }
+                return item.lessonContent.map { ReviewItem(englishText: $0.english, spanishText: $0.spanish, color: item.color, rotorCategory: item.rotorCategory) }
             }
             viewController = ReviewViewController(items: reviewItems)
         }

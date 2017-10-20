@@ -40,11 +40,11 @@ class LessonViewController: UIViewController {
         return button
     }()
     
-    let chineseButton: UIButton = {
+    let spanishButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setBackgroundImage(#imageLiteral(resourceName: "china_flag").withRenderingMode(.alwaysTemplate), for: .normal)
-        button.accessibilityLabel = "Chinese Answer"
-        button.accessibilityHint = "Shows the answer in Chinese"
+        button.setBackgroundImage(#imageLiteral(resourceName: "spain_flag").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.accessibilityLabel = "Spanish Answer"
+        button.accessibilityHint = "Shows the answer in Spanish"
         return button
     }()
     
@@ -98,19 +98,19 @@ class LessonViewController: UIViewController {
         view.backgroundColor = color
         
         englishButton.addTarget(self, action: #selector(didSelectEnglishButton), for: .touchUpInside)
-        chineseButton.addTarget(self, action: #selector(didSelectChineseButton), for: .touchUpInside)
+        spanishButton.addTarget(self, action: #selector(didSelectSpanishButton), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(didSelectNextButton), for: .touchUpInside)
         
-        [englishButton, chineseButton].forEach(buttonStack.addArrangedSubview)
-        [englishButton, chineseButton].forEach{ $0.tintColor = .white }
+        [englishButton, spanishButton].forEach(buttonStack.addArrangedSubview)
+        [englishButton, spanishButton].forEach{ $0.tintColor = .white }
         [questionLabel, lessonView, buttonStack, nextButton].forEach(mainStack.addArrangedSubview)
         view.addSubview(mainStack)
         
-        constrain(englishButton, chineseButton, lessonView) { english, chinese, lesson in
+        constrain(englishButton, spanishButton, lessonView) { english, spanish, lesson in
             english.width == 100
             english.height == 100
             
-            chinese.size == english.size
+            spanish.size == english.size
             
             lesson.width == 300
             lesson.height == 300
@@ -143,8 +143,8 @@ class LessonViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
-    @objc private func didSelectChineseButton() {
-        let vc = AnswerViewController(color: color, text: currentLesson.chinese)
+    @objc private func didSelectSpanishButton() {
+        let vc = AnswerViewController(color: color, text: currentLesson.spanish)
         vc.modalTransitionStyle = .flipHorizontal
         present(vc, animated: true, completion: nil)
     }

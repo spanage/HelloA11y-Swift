@@ -10,7 +10,7 @@ import Cartography
 
 struct ReviewItem {
     let englishText: String
-    let chineseText: String
+    let spanishText: String
     let color: UIColor
     let rotorCategory: String
 }

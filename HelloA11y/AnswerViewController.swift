@@ -24,6 +24,9 @@ final class AnswerViewController: UIViewController {
         button.setTitle("Got it!", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .preferredFont(forTextStyle: .title3)
+        
+        button.accessibilityHint = "Goes back to the lesson"
+        
         return button
     }()
     

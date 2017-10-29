@@ -13,7 +13,6 @@ typealias DrawableLesson = Lesson & Drawable
 class LessonViewController: UIViewController {
     struct Content {
         let lessons: [DrawableLesson]
-        let drawLessonInView: (DrawableLesson, UIView) -> [UIAccessibilityElement]
     }
     
     private let content: Content
@@ -91,7 +90,7 @@ class LessonViewController: UIViewController {
         questionLabel.text = question
         currentLessonShuffleIndex = 0
         let firstLesson = content.lessons[shuffleOrder[currentLessonShuffleIndex]]
-        lessonView = LessonView(lesson: firstLesson, draw: content.drawLessonInView)
+        lessonView = LessonView(lesson: firstLesson)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -170,20 +169,22 @@ class LessonViewController: UIViewController {
 
 private class LessonView: UIView {
     
-    private let draw: (DrawableLesson, UIView) -> [UIAccessibilityElement]
     fileprivate var lesson: DrawableLesson {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    init(lesson: DrawableLesson, draw: @escaping (DrawableLesson, UIView) -> [UIAccessibilityElement]) {
+    init(lesson: DrawableLesson) {
         self.lesson = lesson
-        self.draw = draw
         super.init(frame: .zero)
         
         isAccessibilityElement = false
         backgroundColor = .white
+        
+        defer {
+            self.lesson = lesson
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -191,6 +192,6 @@ private class LessonView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        accessibilityElements = draw(lesson, self)
+        accessibilityElements = lesson.draw(in: self)
     }
 }

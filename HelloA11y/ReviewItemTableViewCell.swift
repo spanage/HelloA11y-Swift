@@ -16,7 +16,13 @@ final class ReviewItemTableViewCell: UITableViewCell {
             englishLabel.text = item.englishText
             spanishLabel.text = item.spanishText
             insetContainerView.backgroundColor = item.color
-            accessibilityLabel = "\(item.englishText), \(item.spanishText)"
+            
+            let voiceoverString = NSMutableAttributedString(string: item.englishText)
+            let spanishVoiceoverString = NSAttributedString(
+                string: item.spanishText,
+                attributes: [NSAttributedStringKey(rawValue: UIAccessibilitySpeechAttributeLanguage) : "es-ES"])
+            voiceoverString.append(spanishVoiceoverString)
+            accessibilityAttributedLabel = voiceoverString
         }
     }
     

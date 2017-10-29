@@ -149,7 +149,10 @@ class LessonViewController: UIViewController {
     }
     
     @objc private func didSelectSpanishButton() {
-        let vc = AnswerViewController(color: color, text: currentLesson.spanish)
+        let spanishVoiceoverString = NSAttributedString(
+            string: currentLesson.spanish,
+            attributes: [NSAttributedStringKey(rawValue: UIAccessibilitySpeechAttributeLanguage) : "es-ES"])
+        let vc = AnswerViewController(color: color, text: currentLesson.spanish, textAccessibilityLabel: spanishVoiceoverString)
         vc.modalTransitionStyle = .flipHorizontal
         present(vc, animated: true, completion: nil)
     }

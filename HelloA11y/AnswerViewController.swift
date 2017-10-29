@@ -32,11 +32,12 @@ final class AnswerViewController: UIViewController {
     
     private let color: UIColor
     
-    init(color: UIColor, text: String) {
+    init(color: UIColor, text: String, textAccessibilityLabel: NSAttributedString? = nil) {
         self.color = color
         super.init(nibName: nil, bundle: nil)
         
         answerLabel.text = text
+        answerLabel.accessibilityAttributedLabel = textAccessibilityLabel
     }
     
     required init?(coder aDecoder: NSCoder) {

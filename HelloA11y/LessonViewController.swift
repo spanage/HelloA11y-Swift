@@ -47,7 +47,7 @@ class LessonViewController: UIViewController {
     
     let spanishButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setBackgroundImage(#imageLiteral(resourceName: "spain_flag").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setBackgroundImage(#imageLiteral(resourceName: "es_flag").withRenderingMode(.alwaysTemplate), for: .normal)
         button.accessibilityLabel = "Spanish Answer"
         button.accessibilityHint = "Shows the answer in Spanish"
         return button
